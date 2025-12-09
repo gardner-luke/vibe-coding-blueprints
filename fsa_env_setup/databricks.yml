@@ -1,0 +1,20 @@
+# Databricks asset bundle for fsa_env_setup
+# Deploys to whatever workspace the user is authenticated to via CLI
+
+bundle:
+  name: fsa_env_setup
+
+variables:
+  catalog:
+    description: "Unity Catalog name (required)"
+  schema:
+    description: "Schema name for the dataset (required)"
+
+include:
+  - resources/*.yml
+  - resources/*/*.yml
+
+targets:
+  default:
+    mode: development
+    default: true
