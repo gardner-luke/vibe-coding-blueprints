@@ -11,13 +11,12 @@ Create 4 columns with metric cards showing:
 | Devices under Management | 6 | Blue text |
 | Maintenance Required | 1 | Blue text |
 | Healthy Turbine % | 83.33% | Blue text |
-| Current Device Energy Production | 73.67 MWH/hr | Blue text, green background |
+| Current Device Energy Production | 73.67 MWH/hr | Blue text |
 
 **Styling:**
 - Each card: white background, light gray border, rounded corners
 - Labels in small blue text above the value
 - Values in large bold text
-- Last card (Energy Production) has a green (#E8F5E9) background
 
 **Use mock/hardcoded values for now.**
 
