@@ -9,3 +9,6 @@ resources:
             base_parameters:
               catalog: ${var.catalog}
               schema: ${var.schema}
+        - task_key: create_app
+          notebook_task:
+            notebook_path: ../src/create_app.py

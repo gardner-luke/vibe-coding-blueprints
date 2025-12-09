@@ -1,0 +1,12 @@
+# Databricks Configuration
+# Fill these values after running the fsa_env_setup bundle
+
+catalog: "my_catalog"
+schema: "my_schema"
+warehouse_id: "your_warehouse_id"
+
+# Tables (created by the bundle)
+tables:
+  metadata: "turbines_metadata"
+  telemetry: "turbine_telemetry"
+

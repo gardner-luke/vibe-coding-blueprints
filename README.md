@@ -10,8 +10,10 @@ This is a **vibe coding template** that demonstrates how to use structured promp
 
 ```
 databricks_mfg_apps/
-├── examples/              # Reference applications (READ-ONLY)
-│   └── streamlit-data-app/
+├── fsa_env_setup/         # Databricks Asset Bundle for data setup
+│   ├── data/              # CSV files to load
+│   ├── src/               # Notebooks (load data, create app)
+│   └── resources/         # Job definitions
 └── instructions/          # Vibe coding prompts for AI assistants
     ├── 01-base-app.md
     ├── 02-databricks-integration.md
@@ -21,39 +23,36 @@ databricks_mfg_apps/
 
 ## 🚀 How to Use
 
-### 1. Understand the Framework
+### 1. Set Up Your Environment
+
+Run the Databricks Asset Bundle to load sample data and create your app:
+
+```bash
+cd fsa_env_setup
+databricks bundle deploy --var="catalog=my_catalog" --var="schema=my_schema"
+databricks bundle run load_data_job --var="catalog=my_catalog" --var="schema=my_schema"
+```
+
+### 2. Understand the Framework
 
 **`instructions/`** - Sequential prompts to guide your AI assistant
 - Start with `01-base-app.md` and progress through each file
 - Simply tag the instruction file in your AI assistant
 - Each prompt builds on the previous one
 
-**`examples/`** - Reference implementations (READ-ONLY)
-- Study these patterns but don't edit them
-- AI references these when implementing features
-
-### 2. Customize for Your Project
-
-Modify the Cursor rules in `.cursor/rules/` directory:
-- Adjust coding standards
-- Update naming conventions
-- Add domain-specific requirements
+### 3. Customize for Your Project
 
 Adapt the instruction prompts:
 - Change table names and data sources
 - Adjust UI/UX requirements
 - Add or remove features
 
-### 3. Build Your Application
+### 4. Build Your Application
 
 1. Tag `instructions/01-base-app.md` in your AI assistant
 2. Let the AI build the application structure
 3. Progress through each instruction file sequentially
 4. Customize and refine as needed
-
-### 4. Use as a Pattern
-
-Clone this framework and adapt it for your own projects. Create your own vibe coding instruction sets for any domain.
 
 ## 🏗️ What Gets Built
 
@@ -94,16 +93,10 @@ This template follows vibe coding principles:
 ## 🎯 Getting Started
 
 1. Clone this repository
-2. Review the examples folder
+2. Run the Databricks Asset Bundle (`fsa_env_setup/`)
 3. Tag `instructions/01-base-app.md` in your AI assistant
 4. Progress through each instruction file
 5. Customize for your needs
-
-## 🎨 Customization
-
-**For Cursor**: Modify `.cursor/rules/*.mdc` files to change behavior
-
-**For Other AI Assistants**: The instruction files work with any AI coding assistant
 
 ## 📋 Example Workflow
 
