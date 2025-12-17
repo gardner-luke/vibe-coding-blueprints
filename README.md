@@ -11,6 +11,7 @@ This is a **vibe coding template** that demonstrates how to use structured promp
 ```
 databricks_mfg_apps/
 ├── config.yaml              # Databricks connection settings (catalog, schema, warehouse)
+├── setup_data.py            # Script to deploy data using config.yaml
 ├── fsa_env_setup/           # Databricks Asset Bundle for data setup
 │   ├── data/                # Sample CSV files (turbine metadata & telemetry)
 │   ├── src/                 # Notebooks (load_data.py, create_app.py)
@@ -26,17 +27,7 @@ databricks_mfg_apps/
 
 ## 🚀 How to Use
 
-### 1. Set Up Your Environment
-
-Run the Databricks Asset Bundle to load sample data:
-
-```bash
-cd fsa_env_setup
-databricks bundle deploy --var="catalog=my_catalog" --var="schema=my_schema"
-databricks bundle run load_data_job --var="catalog=my_catalog" --var="schema=my_schema"
-```
-
-### 2. Update Configuration
+### 1. Configure Environment
 
 Edit `config.yaml` with your Databricks settings:
 
@@ -45,6 +36,16 @@ catalog: "your_catalog"
 schema: "your_schema"
 warehouse_id: "your_warehouse_id"
 ```
+
+### 2. Set Up Data
+
+Run the setup script to deploy the sample data to your Databricks environment:
+
+```bash
+python setup_data.py
+```
+
+This script reads your configuration and runs the Databricks Asset Bundle to create tables.
 
 ### 3. Build the App with AI
 
