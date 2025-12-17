@@ -1,12 +1,11 @@
 # Databricks Configuration
 # Fill these values after running the fsa_env_setup bundle
 
-catalog: "autobricks"
-schema: "fsa_testing"
-warehouse_id: "4b9b953939869799"
+catalog: "CATALOG_NAME"
+schema: "SCHEMA_NAME"
+warehouse_id: "WAREHOUSE_ID"
 
 # Tables (created by the bundle)
 tables:
   metadata: "turbines_metadata"
   telemetry: "turbine_telemetry"
-
