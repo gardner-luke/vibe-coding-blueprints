@@ -75,6 +75,8 @@ python setup_data.py
 
 Use the **Cursor Agent** to build the application. In the Chat window, ensure you are using the "Agent" mode (or "Composer" with Agent capabilities) so it can execute terminal commands and create files.
 
+> **💡 Note about config.yaml:** The AI will read your `config.yaml` values and embed them directly into the `app.py` file as constants. This means the app has no runtime dependency on `config.yaml` - the configuration file is only used as a reference during the build process.
+
 **How to "Tag" Files:**
 To provide instructions to the AI, type `@` followed by the filename (e.g., `@01-app-setup.md`) in the chat input. This gives the AI the specific context it needs for that step. You may also drag and drop the files from your explorer into the Cursor Chat window.
 
