@@ -61,7 +61,13 @@ Run the setup script to deploy the sample data to your Databricks environment:
 python setup_data.py
 ```
 
-This script reads your configuration and runs the Databricks Asset Bundle to create tables. **Once the script completes successfully and you see the data in your catalog, you are ready to proceed to the next step.**
+**What this script does:**
+1. Creates a Python virtual environment (`.venv`) for the app you'll build in Step 3
+2. Reads your configuration from `config.yaml`
+3. Deploys the Databricks Asset Bundle to create tables in Unity Catalog
+4. Runs the data loading job to populate the tables from CSV files
+
+**Once the script completes successfully and you see the data in your catalog, you are ready to proceed to the next step.**
 
 ### 3. Build the App with AI
 
@@ -79,9 +85,13 @@ Run the following prompts sequentially in the Agent chat:
 ```
 
 **✨ Verify it works:**
-After this first step is complete, you can start the app to see your progress:
+After this first step is complete, activate the virtual environment and start the app:
 
 ```bash
+# Activate the virtual environment (created in Step 2)
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Navigate to the app directory and install dependencies
 cd wind-farm-app
 pip install -r requirements.txt
 streamlit run app.py
@@ -89,17 +99,34 @@ streamlit run app.py
 
 *Tip: Keep the app running in your terminal. As you apply the next steps, just refresh your browser to see the changes.*
 
-**2. Add Features:**
+**2. Add Features (run each step individually):**
 
+Add KPI Cards:
 ```bash
-@instructions/02-kpi-cards.md    # Adds 4 KPI metric cards
-@instructions/03-power-chart.md  # Adds power output line chart
-@instructions/04-summary-map.md  # Adds GenAI summary panel & map
-@instructions/05-connectivity.md # Adds Databricks connection testing
-@instructions/06-live-data.md    # Replaces mock data with live queries
+@instructions/02-kpi-cards.md
 ```
 
-Each prompt builds on the previous one, progressively adding features to the dashboard.
+Add Power Chart:
+```bash
+@instructions/03-power-chart.md
+```
+
+Add GenAI Summary & Map:
+```bash
+@instructions/04-summary-map.md
+```
+
+Add Databricks Connection Testing:
+```bash
+@instructions/05-connectivity.md
+```
+
+Connect to Live Data:
+```bash
+@instructions/06-live-data.md
+```
+
+> **Important:** Run each prompt **one at a time** in sequence. Wait for the AI to complete each step before moving to the next.
 
 ## 🏗️ What Gets Built
 
