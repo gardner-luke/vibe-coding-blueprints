@@ -10,6 +10,24 @@ This is a **vibe coding template** that demonstrates how to use structured promp
   <img src="assets/images/FieldServiceAssistant.png" width="800" alt="Field Service Assistant">
 </div>
 
+## 👋 Getting Started
+
+**Prerequisites:** You should be running this in **[Cursor](https://cursor.com)** (the AI-powered code editor). This template is specifically designed for Cursor's Agent/Composer mode.
+
+**Time commitment:** ~30 minutes
+
+### What Makes This Different
+
+This template demonstrates the power of using detailed, natural language prompts in a **modular, composable fashion** to build an app **brick by brick** 🧱😉. Each instruction file contains a precise prompt that tells the AI exactly what to build next, allowing you to construct a complete application incrementally without writing code yourself.
+
+**What to expect:**
+- You'll provide instructions to Cursor, and it handles the implementation
+- Cursor acts as your coding partner - if something doesn't look right, just ask it to fix it
+- Each step builds on the previous one, adding new features progressively
+- You stay in control: review changes and verify results at each step
+
+**New to Cursor?** Don't worry - the instructions are detailed and sequential. Just follow them one at a time and let the AI do the heavy lifting.
+
 ## 📁 Repository Structure
 
 ```
@@ -42,6 +60,29 @@ Before you begin, ensure you have the following:
    - Access to an existing **Catalog** (or permission to create one).
    - Access to a **Schema** (or permission to create one).
    - A **SQL Warehouse** available for use (you will need its ID).
+     - **Recommended:** Use an existing warehouse if available, or create a Serverless 2X-Small warehouse for demo purposes.
+     - Find warehouse IDs in your Databricks workspace under **SQL Warehouses** → Click on a warehouse → Copy the **Server hostname** path or **ID** from the URL.
+
+#### Authentication Setup & Troubleshooting
+
+The Databricks CLI should be authenticated to your workspace. Most users can simply run:
+
+```bash
+databricks auth login
+```
+
+**Note:** Some users, especially in SSO environments, may need to specify a profile:
+
+```bash
+databricks auth login --host <workspace_url> --profile DEFAULT
+```
+
+**Common authentication issues:**
+- "Profile not found" → Use the command above to set a DEFAULT profile
+- "Token expired" → Re-run the auth login command
+- If you have multiple Databricks workspaces, ensure you're authenticated to the correct one
+
+Verify your authentication with: `databricks auth profiles`
 
 ### 1. Configure Environment
 
@@ -147,20 +188,49 @@ Following all 6 instruction prompts creates a **wind-farm-app/** directory conta
 
 ## 🛠️ Technologies
 
+- **Cursor AI (Agent mode)** - AI-assisted development that executes commands and creates files based on natural language instructions
 - **Streamlit** - Python web framework for the dashboard
 - **Databricks Apps** - Deployment platform
 - **Databricks SDK & SQL Connector** - Data access
-- **Unity Catalog** - Data governance
+- **Databricks CLI** - Command-line tool for interacting with Databricks from your terminal
+- **Unity Catalog** - Data governance and data management
 - **Plotly** - Interactive visualizations
 - **Databricks Asset Bundles** - Infrastructure as code for data setup
 
 ## 💡 Philosophy
 
 This template follows vibe coding principles:
+- **Modular Prompts** - Each instruction file is a self-contained, detailed prompt
+- **Composable Architecture** - Features build on each other incrementally
+- **Brick by Brick** - Add one capability at a time, verifying as you go
 - **Simplicity-first** - Build minimally, add incrementally
 - **Progressive complexity** - Each step builds on the previous
-- **Clear instructions** - Specific and actionable prompts
-- **AI-friendly** - Optimized for AI assistant interpretation
+- **AI-friendly** - Prompts optimized for AI assistant interpretation
+- **Human-in-the-Loop** - You guide the direction, AI handles implementation
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+**Authentication errors or "Profile not found"**
+- Run: `databricks auth login --host <workspace_url> --profile DEFAULT`
+- Verify with: `databricks auth profiles`
+- Ensure you're authenticated to the workspace where you created your catalog/schema
+
+**Map doesn't display / connection errors**
+- **Cause:** App may not know which Databricks profile to use
+- **Solution:** Ensure your Databricks CLI is authenticated (see above)
+- If you have multiple profiles, verify your default profile is set correctly
+
+**Setup script fails**
+- Verify your `config.yaml` has no special characters in catalog/schema names (use only letters, numbers, underscores)
+- Check that you have CREATE permissions for the catalog and schema
+- Ensure the Databricks CLI is properly installed: `databricks --version`
+
+**Getting different results than expected**
+- Check that you completed each previous step in order
+- Verify your data loaded correctly by checking your Databricks catalog in the UI
+- Ask Cursor: "Can you verify that my implementation matches the instruction file?"
 
 ## 📚 Resources
 
