@@ -1,5 +1,6 @@
 # Databricks Configuration
-# Fill these values after running the fsa_env_setup bundle
+# Fill these values BEFORE running setup_data.py
+# The setup_data.py script will read these values and deploy the bundle automatically
 
 catalog: "CATALOG_NAME"
 schema: "SCHEMA_NAME"
