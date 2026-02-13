@@ -20,12 +20,13 @@
    databricks bundle deploy --var="catalog=my_catalog" --var="schema=my_schema"
    ```
 
-5. Run the job (loads data):
+5. Run the job (loads data + creates your app):
    ```bash
    databricks bundle run load_data_job --var="catalog=my_catalog" --var="schema=my_schema"
    ```
    This will:
    - Load all CSV files to Unity Catalog
+   - Create an empty app named `{your-username}-field-service-app`
 
 ## Resources
 
